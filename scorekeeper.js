@@ -15,25 +15,44 @@ p1button.addEventListener("click",function()
 if(!gameover)
 {
    Score++;
-   
+
 		if (Score===wingamescore)
+		{
 	       gameover=true;
+	       disp1.classList.add("winner");
+		}
 
  disp1.textContent=Score;
 }
 
 });
 
-var Score2=0;
+var p2Score=0;
 p2button.addEventListener("click",function()
 {
 	if(!gameover)
 	{
-		Score2++;
+		p2Score++;
 
-		if (Score2===wingamescore)
-	     gameover=true;
+		if (p2Score===wingamescore)
+		{
+	           gameover=true;
+	 	       disp2.classList.add("winner");
+	 	   }
+
 	 
-	 	   disp2.textContent=Score;
+	 	   disp2.textContent=p2Score;
 	 	}
 });
+
+p3button.addEventListener("click", function()
+{
+	Score=0;
+	p2Score=0;
+	disp2.textContent=0;
+	disp1.textContent=0;
+	disp1.classList.remove("winner");
+	disp2.classList.remove("winner");
+	gameover=false;
+
+})
