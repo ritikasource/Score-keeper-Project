@@ -3,6 +3,8 @@ var p2button= document.querySelector(".p2");
 var p3button= document.querySelector(".p3");
 var disp1= document.querySelector("#p1Display");
 var disp2=document.querySelector("#p2Display")
+var wingameDisplay=document.querySelector("#scoredisp")
+var num=document.querySelector("input")
 
 var gameover=false;
 var wingamescore=5;
@@ -45,7 +47,7 @@ p2button.addEventListener("click",function()
 	 	}
 });
 
-p3button.addEventListener("click", function()
+function reset()
 {
 	Score=0;
 	p2Score=0;
@@ -54,5 +56,18 @@ p3button.addEventListener("click", function()
 	disp1.classList.remove("winner");
 	disp2.classList.remove("winner");
 	gameover=false;
+}
 
-})
+p3button.addEventListener("click", function()
+{
+	reset();
+
+});
+
+num.addEventListener("change", function(){
+	
+	wingameDisplay.textContent= num.value;
+	wingamescore=Number(num.value);
+	reset();
+});
+
